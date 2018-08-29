@@ -33,6 +33,11 @@ class App extends Component {
       this.setState({
         items: newState
       });
+    });
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      }
     })
   }
 
@@ -43,7 +48,12 @@ class App extends Component {
   }
 
   logout() {
-
+    auth.signOut()
+      .then(() => {
+        this.setState({
+          user: null
+        });
+      });
   }
 
   login() {
