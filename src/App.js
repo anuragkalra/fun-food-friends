@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   login() {
+    console.log('pee');
     auth.signInWithPopup(provider)
       .then((result) => {
         const user = result.user;
@@ -64,6 +65,7 @@ class App extends Component {
           user
         })
       })
+    console.log('poo');
   }
 
   handleSubmit(e) {
